@@ -6,7 +6,7 @@
 ### Department：TAHRD Sophomore
 
 
-# > LESSON <
-# > HW <  
-[HW0](https://reccloud.com/tw/u/hrs9dpv)
+# > LESSON 📚<
+# > HW 🖊️ <  
+[HW0-- Create a Database System](https://reccloud.com/tw/u/hrs9dpv)
 # > LINK <

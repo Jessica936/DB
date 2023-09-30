@@ -19,7 +19,7 @@ app.post("/create", (req, res) => {
   const itemName = req.body.itemName;
 
   db.query(
-    "INSERT INTO erd.buyer (buyerName, itemID, itemName) VALUES (?,?,?)",
+    "INSERT INTO erd.buyer (buyerName) VALUES (?)",
     [buyerName, itemID, itemName],
     (err, result) => {
       if (err) {

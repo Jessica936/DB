@@ -11,7 +11,7 @@ function App() {
 
   const addBuyer = () => {
     Axios.post("http://localhost:3001/create", {
-      buyName: buyerName,
+      buyerName: buyerName,
       itemID: itemID,
       itemName: itemName,
 
@@ -19,7 +19,7 @@ function App() {
       setBuyerList([
         ...buyerList,
         {
-          buyName: buyerName,
+          buyerName: buyerName,
           itemID: itemID,
           itemName: itemName,
         },
@@ -42,7 +42,7 @@ function App() {
               ? {
                   id: val.id,
                   buyName: val.buyerName,
-                  itemID: itemID,
+                  itemID: val.itemID,
                   itemName: val.itemName,
                 }
               : val;

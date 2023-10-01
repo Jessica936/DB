@@ -4,43 +4,49 @@ import Axios from "axios";
 
 function App() {
   const [buyerName, setName] = useState("");
-  const [buyerCity, setCity] = useState("");
-  // const [itemID, setItemID] = useState("");
-  // const [itemName, setItemName] = useState("");
+  const [itemID, setItemID] = useState("");
+  const [itemName, setItemName] = useState("");
 
   const [buyerList, setBuyerList] = useState([]);
-  // const [itemList, setItemList] = useState([]);
-  
+  const [itemList, setItemList] = useState([]);
+
+ // 抽象API请求URL
+  const apiUrl = "http://localhost:3001";
+
+  useEffect(() => {
+    // 在组件加载时获取买家列表
+    getBuyer();
+    getItem();
+  }, []); // 空依赖数组确保只在组件加载时调用一次
+
   const addBuyer = () => {
-    Axios.post("http://localhost:3001/createBuyer", {
+    Axios.post("http://localhost:3001/create", {
       buyerName: buyerName,
-      buyerCity: buyerCity,
       
     }).then(() => {
       setBuyerList([
         ...buyerList,
         {
           buyerName: buyerName,
-          buyerCity: buyerCity,
         },
       ]);
     });
   };
-  // const addItem = () => {
-  //   Axios.post("http://localhost:3001/create", {
-  //     itemID: itemID,
-  //     itemName: itemName,
+  const addItem = () => {
+    Axios.post("http://localhost:3001/create", {
+      itemID: itemID,
+      itemName: itemName,
 
-  //   }).then(() => {
-  //     setItemList([
-  //       ...itemList,
-  //       {
-  //       itemID: itemID,
-  //       itemName: itemName,
-  //       },
-  //     ]);
-  //   });
-  // };
+    }).then(() => {
+      setItemList([
+        ...itemList,
+        {
+        itemID: itemID,
+        itemName: itemName,
+        },
+      ]);
+    });
+  };
   
 
   const getBuyer = () => {
@@ -48,36 +54,39 @@ function App() {
       setBuyerList(response.data);
     });
   };
-  // const getItem = () => {
-  //   Axios.get("http://localhost:3001/Item").then((response) => {
-  //     setItemList(response.data);
-  //   });
-  // };
-
-
-  const updateBuyer = (id) => {
-    const NewbuyerName = prompt("Enter new Buyer name:");
-    if (NewbuyerName !== null) {
-      Axios.put(`http://localhost:3001/updateBuyer/${id}`, {
-        new_buyername: NewbuyerName,
-      }).then(() => {
-        getBuyer(); // Refresh the user list
-      });
-    }
-  };
-
-  const deleteBuyer = (id) => {
-    Axios.delete(`http://localhost:3001/deleteBuyer/${id}`).then((response) => {
-      getBuyer();
+  const getItem = () => {
+    Axios.get("http://localhost:3001/Item").then((response) => {
+      setItemList(response.data);
     });
   };
 
-  const searchBuyer = () => {
-    Axios.get(`http://localhost:3001/searchBuyer?search=${searchQuery}`).then(
+  const updateBuyeritemID = (id) => {
+    Axios.put("http://localhost:3001/update", { itemID: itemID, id: id }).then(
       (response) => {
-        setSearchResults(response.data);
+        setBuyerList(
+          buyerList.map((val) => {
+            return val.id == id
+              ? {
+                  id: val.id,
+                  buyName: val.buyerName,
+                  itemID: val.itemID,
+                  itemName: val.itemName,
+                }
+              : val;
+          })
+        );
       }
     );
+  };
+
+  const deleteBuyer = (id) => {
+    Axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
+      setBuyerList(
+        buyerList.filter((val) => {
+          return val.id != id;
+        })
+      );
+    });
   };
 
   return (
@@ -90,15 +99,7 @@ function App() {
             setName(event.target.value);
           }}
         />
-
-        <label>Buyer City:</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setCity(event.target.value);
-          }}
-        />
-        {/* <label>Item ID:</label>
+        <label>Item ID:</label>
         <select
           onChange={(event) => {
             setItemID(event.target.value);
@@ -141,26 +142,24 @@ function App() {
           <option value="Winter Coat">Winter Coat</option>
           <option value="Bluetooth Headphones">Bluetooth Headphones</option>
           <option value="Patio Furniture Set">Patio Furniture Set</option>
-        </select> */}
+        </select>
         <button onClick={addBuyer}>Add Buyer</button>
-        {/* <button onClick={addItem}>Add Item</button> */}
+        <button onClick={addItem}>Add Item</button>
       </div>
       <div className="buyer">
         <button onClick={getBuyer}>Show Buyer</button>
-        {/* <button onClick={getItem}>Show Item</button> */}
+        <button onClick={getItem}>Show Item</button>
 
         {buyerList.map((val, key) => {
           return (
             <div className="buyer" key={key}>
               <div>
-                <h3>Buyer ID: {val.buyerID}</h3>
                 <h3>Buyer Name: {val.buyerName}</h3>
-                <h3>Buyer City: {val.buyerCity}</h3>
-                {/* <h3>Item ID: {val.itemID}</h3>
-                <h3>Item Name: {val.itemName}</h3> */}
+                <h3>Item ID: {val.itemID}</h3>
+                <h3>Item Name: {val.itemName}</h3>
               </div>
               <div>
-              {/* <select
+              <select
                 onChange={(event) => {
                   setItemID(event.target.value);
                 }}
@@ -180,10 +179,10 @@ function App() {
                 <option value="13">NO.13</option>
                 <option value="14">NO.14</option>
                 <option value="15">NO.15</option>
-              </select> */}
+              </select>
               <button
                   onClick={() => {
-                    updateBuyer(val.id);
+                    updateBuyeritemID(val.id);
                   }}
                 >
                   {" "}

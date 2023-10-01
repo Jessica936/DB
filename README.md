@@ -6,9 +6,11 @@
 ### Department：TAHRD Sophomore
 
 
-# > LESSON 📚<
-# > HW 🖊️ <  
+# LESSON 📑
+# HW🪄 
 [HW0-- Create a Database System](https://reccloud.com/tw/u/hrs9dpv)
 
-[HW1 - ERD & CRUD with My Tables](https://youtu.be/nGiRSK3_sCI)
-# > LINK <
+[HW1-- ERD & CRUD with My Tables](https://youtu.be/nGiRSK3_sCI)
+
+[HW2-- CRUD in Web APP with My Table](https://youtu.be/hRQNQLgr38o)
+# LINK🔗

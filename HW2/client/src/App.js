@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Axios from "axios";
 
 function App() {
@@ -10,12 +10,14 @@ function App() {
 
   const [buyerList, setBuyerList] = useState([]);
   // const [itemList, setItemList] = useState([]);
-  
+  const [searchQuery, setSearchQuery] = useState(""); // State for the search query
+  const [searchResults, setSearchResults] = useState([]); // State to store search results
+
   const addBuyer = () => {
     Axios.post("http://localhost:3001/createBuyer", {
       buyerName: buyerName,
       buyerCity: buyerCity,
-      
+
     }).then(() => {
       setBuyerList([
         ...buyerList,
@@ -41,7 +43,7 @@ function App() {
   //     ]);
   //   });
   // };
-  
+
 
   const getBuyer = () => {
     Axios.get("http://localhost:3001/buyer").then((response) => {
@@ -72,13 +74,13 @@ function App() {
     });
   };
 
-  // const searchBuyer = () => {
-  //   Axios.get(`http://localhost:3001/searchBuyer?search=${searchQuery}`).then(
-  //     (response) => {
-  //       setSearchResults(response.data);
-  //     }
-  //   );
-  // };
+  const searchBuyer = () => {
+    Axios.get(`http://localhost:3001/searchBuyer?search=${searchQuery}`).then(
+      (response) => {
+        setSearchResults(response.data);
+      }
+    );
+  };
 
   return (
     <div className="App">
@@ -98,6 +100,7 @@ function App() {
             setCity(event.target.value);
           }}
         />
+
         {/* <label>Item ID:</label>
         <select
           onChange={(event) => {
@@ -160,7 +163,7 @@ function App() {
                 <h3>Item Name: {val.itemName}</h3> */}
               </div>
               <div>
-              {/* <select
+                {/* <select
                 onChange={(event) => {
                   setItemID(event.target.value);
                 }}
@@ -181,7 +184,7 @@ function App() {
                 <option value="14">NO.14</option>
                 <option value="15">NO.15</option>
               </select> */}
-              <button
+                <button
                   onClick={() => {
                     updateBuyer(val.buyerID);
                   }}
@@ -199,9 +202,32 @@ function App() {
                 </button>
               </div>
             </div>
+            
           );
         })}
       </div>
+      <div className="search">
+                <label>Search Buyer:</label>
+                <input
+                  type="text"
+                  onChange={(event) => {
+                    setSearchQuery(event.target.value);
+                  }}
+                />
+                <button onClick={searchBuyer}>Search</button>
+              </div>
+
+              {/* Display search results */}
+              <div className="search-results">
+                {searchResults.map((result, index) => {
+                  return (
+                    <div className="search-result" key={index}>
+                      <p>ItemID: {result.itemID}</p>
+                      <p>Item Name: {result.itemName}</p>
+                    </div>
+                  );
+                })}
+              </div>
     </div>
   );
 }

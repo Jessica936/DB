@@ -94,6 +94,33 @@ app.delete("/deleteBuyer/:id", (req, res) => {
   });
 });
 
+app.get("/searchBuyer", (req, res) => {
+  const searchQuery = req.query.search || "";
+
+  const sqlQuery = `
+  SELECT erd.buyer.buyerName, erd.buyer_item.itemID, erd.item.itemName
+  FROM ((erd.buyer_item
+  INNER JOIN erd.buyer ON erd.buyer_item.buyerID = erd.buyer.buyerID)
+  INNER JOIN erd.item ON erd.buyer_item.itemID = erd.item.itemID)
+  WHERE erd.buyer.buyerName LIKE ?
+  OR erd.buyer_item.itemID LIKE ?
+  OR erd.item.itemName LIKE ?
+  `;
+
+  db.query(
+    sqlQuery,
+    [`%${searchQuery}%`, `%${searchQuery}%`, `%${searchQuery}%`],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("Error fetching search results");
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
 app.listen(3001, () => {
   console.log("Yey, your server is running on port 3001");
 });

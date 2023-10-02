@@ -59,7 +59,7 @@ function App() {
     const NewbuyerName = prompt("Enter new Buyer name:");
     if (NewbuyerName !== null) {
       Axios.put(`http://localhost:3001/updateBuyer/${id}`, {
-        new_buyername: NewbuyerName,
+        buyerName: NewbuyerName,
       }).then(() => {
         getBuyer(); // Refresh the user list
       });
@@ -72,13 +72,13 @@ function App() {
     });
   };
 
-  const searchBuyer = () => {
-    Axios.get(`http://localhost:3001/searchBuyer?search=${searchQuery}`).then(
-      (response) => {
-        setSearchResults(response.data);
-      }
-    );
-  };
+  // const searchBuyer = () => {
+  //   Axios.get(`http://localhost:3001/searchBuyer?search=${searchQuery}`).then(
+  //     (response) => {
+  //       setSearchResults(response.data);
+  //     }
+  //   );
+  // };
 
   return (
     <div className="App">
@@ -183,7 +183,7 @@ function App() {
               </select> */}
               <button
                   onClick={() => {
-                    updateBuyer(val.id);
+                    updateBuyer(val.buyerID);
                   }}
                 >
                   {" "}
@@ -192,7 +192,7 @@ function App() {
 
                 <button
                   onClick={() => {
-                    deleteBuyer(val.id);
+                    deleteBuyer(val.buyerID);
                   }}
                 >
                   Delete

@@ -67,11 +67,11 @@ app.get("/buyer", (req, res) => {
 //   });
 // });
 
-app.put("/updateBuyer", (req, res) => {
-  const id = req.body.buyerID;
+app.put("/updateBuyer/:id", (req, res) => {
+  const id = req.params.id;
   const buyerName= req.body.buyerName;
   db.query(
-    "UPDATE buyer SET buyerName = ? WHERE id = ?",
+    "UPDATE buyer SET buyerName = ? WHERE buyerID = ?",
     [buyerName, id],
     (err, result) => {
       if (err) {

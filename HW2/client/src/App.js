@@ -148,6 +148,28 @@ function App() {
         <button onClick={addBuyer}>Add Buyer</button>
         {/* <button onClick={addItem}>Add Item</button> */}
       </div>
+      <div className="search">
+                <label>Search Buyer:</label>
+                <input
+                  type="text"
+                  onChange={(event) => {
+                    setSearchQuery(event.target.value);
+                  }}
+                />
+                <button onClick={searchBuyer}>Search</button>
+              </div>
+
+              {/* Display search results */}
+              <div className="search-results">
+                {searchResults.map((result, index) => {
+                  return (
+                    <div className="search-result" key={index}>
+                      <p>ItemID: {result.itemID}</p>
+                      <p>Item Name: {result.itemName}</p>
+                    </div>
+                  );
+                })}
+              </div>
       <div className="buyer">
         <button onClick={getBuyer}>Show Buyer</button>
         {/* <button onClick={getItem}>Show Item</button> */}
@@ -206,28 +228,7 @@ function App() {
           );
         })}
       </div>
-      <div className="search">
-                <label>Search Buyer:</label>
-                <input
-                  type="text"
-                  onChange={(event) => {
-                    setSearchQuery(event.target.value);
-                  }}
-                />
-                <button onClick={searchBuyer}>Search</button>
-              </div>
-
-              {/* Display search results */}
-              <div className="search-results">
-                {searchResults.map((result, index) => {
-                  return (
-                    <div className="search-result" key={index}>
-                      <p>ItemID: {result.itemID}</p>
-                      <p>Item Name: {result.itemName}</p>
-                    </div>
-                  );
-                })}
-              </div>
+      
     </div>
   );
 }

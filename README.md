@@ -2,8 +2,8 @@
 
 # 112-1 Database system
 ### Professor：[Pecu](https://github.com/pecu) 
-### Student：Jessica
-### Department：TAHRD Sophomore
+### Student：[Jessica](https://github.com/Jessica936/Jessica936)
+### Department：[TAHRD Sophomore](https://www.tahrd.ntnu.edu.tw/)
 
 
 # LESSON 📑

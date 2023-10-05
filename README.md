@@ -1,7 +1,7 @@
 # DB
 
 # 112-1 Database system
-### Professor：Pecu 
+### Professor：[Pecu](https://github.com/pecu) 
 ### Student：Jessica
 ### Department：TAHRD Sophomore
 

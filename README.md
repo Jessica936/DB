@@ -8,7 +8,7 @@
 
 # LESSON 📑
 # HW🪄 
-[HW0-- Create a Database System](https://reccloud.com/tw/u/hrs9dpv)
+[HW0-- Create a Database System](https://youtu.be/VOGeplvHN7c)
 
 [HW1-- ERD & CRUD with My Tables](https://youtu.be/nGiRSK3_sCI)
 

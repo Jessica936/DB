@@ -1,0 +1,107 @@
+[
+	{
+		"buyerID" : 1,
+		"buyerName" : "Jessica",
+		"buyerCity" : "TAIPEI"
+	},
+	{
+		"buyerID" : 2,
+		"buyerName" : "Tom",
+		"buyerCity" : "NEW YORK"
+	},
+	{
+		"buyerID" : 3,
+		"buyerName" : "Mike",
+		"buyerCity" : "SEATTLE"
+	},
+	{
+		"buyerID" : 4,
+		"buyerName" : "Michelle",
+		"buyerCity" : "BEIJING"
+	},
+	{
+		"buyerID" : 5,
+		"buyerName" : "Finn",
+		"buyerCity" : "SINGAPORE"
+	},
+	{
+		"buyerID" : 6,
+		"buyerName" : "Cindy",
+		"buyerCity" : "TAIPEI"
+	},
+	{
+		"buyerID" : 7,
+		"buyerName" : "John Doe",
+		"buyerCity" : "New York"
+	},
+	{
+		"buyerID" : 8,
+		"buyerName" : "Jane Smith",
+		"buyerCity" : "Los Angeles"
+	},
+	{
+		"buyerID" : 9,
+		"buyerName" : "Bob Johnson",
+		"buyerCity" : "Chicago"
+	},
+	{
+		"buyerID" : 10,
+		"buyerName" : "Alice Brown",
+		"buyerCity" : "Houston"
+	},
+	{
+		"buyerID" : 11,
+		"buyerName" : "Charlie Davis",
+		"buyerCity" : "Phoenix"
+	},
+	{
+		"buyerID" : 12,
+		"buyerName" : "Eva Wilson",
+		"buyerCity" : "Philadelphia"
+	},
+	{
+		"buyerID" : 13,
+		"buyerName" : "David Lee",
+		"buyerCity" : "San Antonio"
+	},
+	{
+		"buyerID" : 14,
+		"buyerName" : "Grace Martinez",
+		"buyerCity" : "San Diego"
+	},
+	{
+		"buyerID" : 15,
+		"buyerName" : "Frank Turner",
+		"buyerCity" : "Dallas"
+	},
+	{
+		"buyerID" : 20,
+		"buyerName" : "Jessica",
+		"buyerCity" : "Frankfurt"
+	},
+	{
+		"buyerID" : 21,
+		"buyerName" : "moana",
+		"buyerCity" : "Rivertown"
+	},
+	{
+		"buyerID" : 22,
+		"buyerName" : "kevin",
+		"buyerCity" : "Crestview"
+	},
+	{
+		"buyerID" : 23,
+		"buyerName" : "Echo",
+		"buyerCity" : "Harbor Heights"
+	},
+	{
+		"buyerID" : 24,
+		"buyerName" : "ivy",
+		"buyerCity" : "Harbor Heights"
+	},
+	{
+		"buyerID" : 25,
+		"buyerName" : "Jason",
+		"buyerCity" : "Sapphire Springs"
+	}
+]

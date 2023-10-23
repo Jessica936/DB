@@ -1,0 +1,107 @@
+[
+	{
+		"ItemID" : 1,
+		"ItemName" : "Water bottle",
+		"Price" : 500,
+		"ItemType" : "Stainless steel",
+		"ShippingMethod" : " International"
+	},
+	{
+		"ItemID" : 2,
+		"ItemName" : "Sweater",
+		"Price" : 799,
+		"ItemType" : "Yarn",
+		"ShippingMethod" : "Local delivery"
+	},
+	{
+		"ItemID" : 3,
+		"ItemName" : "Blouse",
+		"Price" : 399,
+		"ItemType" : "silk cloth",
+		"ShippingMethod" : "Local delivery"
+	},
+	{
+		"ItemID" : 4,
+		"ItemName" : "Nike Court Legacy Lift",
+		"Price" : 2500,
+		"ItemType" : "synthetic materials",
+		"ShippingMethod" : "Freight"
+	},
+	{
+		"ItemID" : 5,
+		"ItemName" : "Nike Air Force 1 Shadow",
+		"Price" : 4000,
+		"ItemType" : "synthetic materials",
+		"ShippingMethod" : "Freight"
+	},
+	{
+		"ItemID" : 6,
+		"ItemName" : "Smartphone X",
+		"Price" : 599,
+		"ItemType" : "Electronics",
+		"ShippingMethod" : "Standard Shipping"
+	},
+	{
+		"ItemID" : 7,
+		"ItemName" : "Running Shoes",
+		"Price" : 79,
+		"ItemType" : "Clothing",
+		"ShippingMethod" : "Express Shipping"
+	},
+	{
+		"ItemID" : 8,
+		"ItemName" : "Garden Hose",
+		"Price" : 25,
+		"ItemType" : "Home and Garden",
+		"ShippingMethod" : "Free Shipping"
+	},
+	{
+		"ItemID" : 9,
+		"ItemName" : "Laptop Pro",
+		"Price" : 899,
+		"ItemType" : "Electronics",
+		"ShippingMethod" : "Standard Shipping"
+	},
+	{
+		"ItemID" : 10,
+		"ItemName" : "Denim Jeans",
+		"Price" : 49,
+		"ItemType" : "Clothing",
+		"ShippingMethod" : "Express Shipping"
+	},
+	{
+		"ItemID" : 11,
+		"ItemName" : "4K TV",
+		"Price" : 799,
+		"ItemType" : "Electronics",
+		"ShippingMethod" : "Free Shipping"
+	},
+	{
+		"ItemID" : 12,
+		"ItemName" : "Coffee Maker",
+		"Price" : 39,
+		"ItemType" : "Home and Garden",
+		"ShippingMethod" : "Standard Shipping"
+	},
+	{
+		"ItemID" : 13,
+		"ItemName" : "Winter Coat",
+		"Price" : 129,
+		"ItemType" : "Clothing",
+		"ShippingMethod" : "Express Shipping"
+	},
+	{
+		"ItemID" : 14,
+		"ItemName" : "Bluetooth Headphones",
+		"Price" : 129,
+		"ItemType" : "Electronics",
+		"ShippingMethod" : "Free Shipping"
+	},
+	{
+		"ItemID" : 15,
+		"ItemName" : "Patio Furniture Set",
+		"Price" : 499,
+		"ItemType" : "Home and Garden",
+		"ShippingMethod" : "Standard Shipping"
+	}
+]

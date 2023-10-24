@@ -13,4 +13,6 @@
 [HW1-- ERD & CRUD with My Tables](https://youtu.be/nGiRSK3_sCI)
 
 [HW2-- CRUD in Web APP with My Table](https://youtu.be/sAlmnGAWoqU)
+
+[HW3-- CRUD in NoSQL from My SQL Table](https://youtu.be/t-YbpEQduCs)
 # LINK🔗

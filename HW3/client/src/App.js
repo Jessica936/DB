@@ -29,14 +29,8 @@ function App() {
       buyerCity: buyerCity,
 
     }).then(() => {
-      setBuyerList([
-        ...buyerList,
-        {
-          buyerName: buyerName,
-          buyerCity: buyerCity,
-        },
-      ]);
-    });
+        getBuyer(); // Refresh the user list
+      })
   };
 
   // Assuming you've already imported Axios somewhere in your code
@@ -226,4 +220,3 @@ function App() {
 }
 
 export default App;
-

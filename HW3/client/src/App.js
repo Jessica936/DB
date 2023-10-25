@@ -60,13 +60,15 @@ function App() {
     });
   };
 
-  // const searchBuyer = () => {
-  //   Axios.get(`http://localhost:3001/searchBuyer?search=${searchQuery}`).then(
-  //     (response) => {
-  //       setSearchResults(response.data);
-  //     }
-  //   );
-  // };
+  const searchBuyerByName = () => {
+    Axios.get(`http://localhost:3001/searchBuyerByName?name=${searchQuery}`)
+      .then((response) => {
+        setSearchResults(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <div className="App">
@@ -214,7 +216,30 @@ function App() {
           );
         })}
       </div>
-      
+      <div className="search">
+        <h2>Search Buyers</h2>
+        <label>Buyer Name:</label>
+        <input
+          type="text"
+          onChange={(event) => {
+            setSearchQuery(event.target.value);
+          }}
+        />
+        <button onClick={searchBuyerByName}>Search</button>
+      </div>
+
+      <div className="search-results">
+        <h2>Search Results</h2>
+        {searchResults.map((result, index) => {
+          return (
+            <div className="search-result" key={index}>
+              <p>ID: {result._id}</p>
+              <p>Buyer Name: {result.buyerName}</p>
+              <p>Buyer City: {result.buyerCity}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

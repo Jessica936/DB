@@ -28,9 +28,7 @@ const buyerSchema = new mongoose.Schema({
   buyerCity: String,
 });
 
-
 const Buyer = mongoose.model("Buyer", buyerSchema);
-
 
 app.post("/createBuyer", async (req, res) => {
   const buyerName = req.body.buyerName;
@@ -49,7 +47,6 @@ app.post("/createBuyer", async (req, res) => {
   }
 });
 
-
 app.get("/buyer", async (req, res) => {
   try {
     const buyer = await Buyer.find({});
@@ -59,34 +56,6 @@ app.get("/buyer", async (req, res) => {
     res.status(500).send("Error fetching buyer");
   }
 });
-
-
-// app.post("/createItem", (req, res) => {
-//   const itemID = req.body.itemID;
-//   const itemName = req.body.itemName;
-
-//   db.query(
-//     "INSERT INTO item (itemID, itemName) VALUES (?,?)",
-//     [itemID, itemName],
-//     (err, result) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         res.send("Values Inserted");
-//       }
-//     }
-//   );
-// });
-
-// app.get("/item", (req, res) => {
-//   db.query("SELECT * FROM item", (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(result);
-//     }
-//   });
-// });
 
 app.put("/updateBuyer/:id", (req, res) => {
   const id = req.params.id;
@@ -105,7 +74,6 @@ app.put("/updateBuyer/:id", (req, res) => {
     });
 });
 
-
 app.delete("/deleteBuyer/:id", async (req, res) => {
   const id = req.params.id;
 
@@ -119,18 +87,17 @@ app.delete("/deleteBuyer/:id", async (req, res) => {
   }
 });
 
-// app.get("/searchBuyer", (req, res) => {
-//   const searchQuery = req.query.search || "";
-
-//   const sqlQuery = `
-//   SELECT erd.buyer.buyerName, erd.buyer_item.itemID, erd.item.itemName
-//   FROM ((erd.buyer_item
-//   INNER JOIN erd.buyer ON erd.buyer_item.buyerID = erd.buyer.buyerID)
-//   INNER JOIN erd.item ON erd.buyer_item.itemID = erd.item.itemID)
-//   WHERE erd.buyer.buyerName LIKE ?
-//   OR erd.buyer_item.itemID LIKE ?
-//   OR erd.item.itemName LIKE ?
-//   `;
+app.get("/searchBuyerByName", (req, res) => {
+  const searchName = req.query.name; // Get the name to search for from query parameters
+  Buyer.find({ buyerName: { $regex: searchName, $options: "i" } }) // Case-insensitive search
+    .then((buyer) => {
+      res.send(buyer);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error searching for buyers by name");
+    });
+});
 
 app.listen(3001, () => {
   console.log("Yey, your server is running on port 3001");

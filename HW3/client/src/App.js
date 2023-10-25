@@ -12,6 +12,7 @@ function App() {
   // const [itemList, setItemList] = useState([]);
   const [searchQuery, setSearchQuery] = useState(""); // State for the search query
   const [searchResults, setSearchResults] = useState([]); // State to store search results
+  const [errorMessage, setErrorMessage] = useState(""); 
 
   // useEffect(() => {
   //   getBuyerList();
@@ -64,9 +65,12 @@ function App() {
     Axios.get(`http://localhost:3001/searchBuyerByName?name=${searchQuery}`)
       .then((response) => {
         setSearchResults(response.data);
+        setErrorMessage(""); // Clear any previous error message
       })
       .catch((error) => {
         console.error(error);
+        setErrorMessage("No buyer found with the specified name");
+        setSearchResults([]); // Clear search results in case of an error
       });
   };
 
@@ -230,15 +234,17 @@ function App() {
 
       <div className="search-results">
         <h2>Search Results</h2>
-        {searchResults.map((result, index) => {
-          return (
+        {errorMessage ? (
+          <p>{errorMessage}</p>
+        ) : (
+          searchResults.map((result, index) => (
             <div className="search-result" key={index}>
               <p>ID: {result._id}</p>
               <p>Buyer Name: {result.buyerName}</p>
               <p>Buyer City: {result.buyerCity}</p>
             </div>
-          );
-        })}
+          ))
+        )}
       </div>
     </div>
   );

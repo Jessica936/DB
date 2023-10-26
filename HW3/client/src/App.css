@@ -84,6 +84,10 @@ button:hover {
   max-width: 100%;
   transition: box-shadow 0.3s ease;
 }
+.error-message {
+  color: red;
+  font-weight: bold;
+}
 
 .search-result:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);

@@ -64,16 +64,20 @@ function App() {
   const searchBuyerByName = () => {
     Axios.get(`http://localhost:3001/searchBuyerByName?name=${searchQuery}`)
       .then((response) => {
-        setSearchResults(response.data);
-        setErrorMessage(""); // Clear any previous error message
+        if (response.data.length === 0) {
+          setErrorMessage("No buyer found with the specified name");
+        } else {
+          setErrorMessage(""); // Clear any previous error message
+          setSearchResults(response.data);
+        }
       })
       .catch((error) => {
         console.error(error);
-        setErrorMessage("No buyer found with the specified name");
+        setErrorMessage("An error occurred while searching for buyers");
         setSearchResults([]); // Clear search results in case of an error
       });
   };
-
+  
   return (
     <div className="App">
       <div className="information">

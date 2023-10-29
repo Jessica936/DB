@@ -15,4 +15,6 @@
 [HW2-- CRUD in Web APP with My Table](https://youtu.be/sAlmnGAWoqU)
 
 [HW3-- CRUD in NoSQL from My SQL Table](https://youtu.be/t-YbpEQduCs)
+
+[HW4-- Adding Search function & Debugging in the HW3](https://youtu.be/qVGbNEMgnms)
 # LINK🔗

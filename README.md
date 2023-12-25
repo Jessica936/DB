@@ -18,6 +18,8 @@
 
 [HW4-- Adding Search function & Debugging in the HW3](https://youtu.be/qVGbNEMgnms)
 
+[HW5-- Deploy React App to Azure](https://youtu.be/a8kkTbsg3Uw)
+
 # LINK🔗
 ### Project-- Wide Appointment System
 [Third Proposal](https://youtu.be/DlJF48i3-_4)
